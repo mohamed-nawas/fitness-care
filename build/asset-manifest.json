@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/fitness-care/static/css/main.e42d54fa.chunk.css",
+    "main.js": "/fitness-care/static/js/main.124b49e6.chunk.js",
+    "main.js.map": "/fitness-care/static/js/main.124b49e6.chunk.js.map",
+    "runtime-main.js": "/fitness-care/static/js/runtime-main.b3fff437.js",
+    "runtime-main.js.map": "/fitness-care/static/js/runtime-main.b3fff437.js.map",
+    "static/js/2.16329ca9.chunk.js": "/fitness-care/static/js/2.16329ca9.chunk.js",
+    "static/js/2.16329ca9.chunk.js.map": "/fitness-care/static/js/2.16329ca9.chunk.js.map",
+    "index.html": "/fitness-care/index.html",
+    "precache-manifest.53f8122b09311cea025a2b0414b8275f.js": "/fitness-care/precache-manifest.53f8122b09311cea025a2b0414b8275f.js",
+    "service-worker.js": "/fitness-care/service-worker.js",
+    "static/css/main.e42d54fa.chunk.css.map": "/fitness-care/static/css/main.e42d54fa.chunk.css.map",
+    "static/js/2.16329ca9.chunk.js.LICENSE.txt": "/fitness-care/static/js/2.16329ca9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b3fff437.js",
+    "static/js/2.16329ca9.chunk.js",
+    "static/css/main.e42d54fa.chunk.css",
+    "static/js/main.124b49e6.chunk.js"
+  ]
+}
