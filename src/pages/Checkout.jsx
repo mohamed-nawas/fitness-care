@@ -14,10 +14,10 @@ const STATUS = {
 };
 
 // Declaring outside component to avoid recreation on each render
-const emptyAddress = {
-  city: "",
-  country: "",
-};
+// const emptyAddress = {
+//   city: "",
+//   country: "",
+// };
 
 export default function Checkout() {
   let totalPrice = 0;

@@ -28,7 +28,7 @@ export default function useFetchAll(urls) {
       });
 
     return () => (isMounted.current = false);
-  }, []);
+  }, [urls]);
 
   return { data, loading, error };
 }
