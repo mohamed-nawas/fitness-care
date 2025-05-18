@@ -45,8 +45,7 @@ export default function Detail() {
         </p>
       </div>
       <div className="detail-column">
-        {/* <img src={`/images/${product.image}`} alt={product.category} /> */}
-        <img src={`${process.env.PUBLIC_URL}/images/${product.image}`} alt={product.category} />
+        <img src={`/images/${product.image}`} alt={product.category} />
       </div>
     </div>
   );
