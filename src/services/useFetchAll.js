@@ -4,7 +4,7 @@ export default function useFetchAll(urls) {
   const isMounted = React.useRef(false);
   const [data, setData] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(null);
+  const [error, setError] = React.useState(null)
 
   React.useEffect(() => {
     isMounted.current = true;
