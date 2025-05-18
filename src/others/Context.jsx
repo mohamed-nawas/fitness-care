@@ -1,59 +1,71 @@
 import React from "react";
 import { cartReducer, checkoutReducer } from "./Reducer";
 
-// cart context
+// ---- CART CONTEXT ---- //
 export const CartContext = React.createContext(null);
 
-let initialCartState;
+// Load cart safely
+let initialCartState = [];
 try {
-  initialCartState =
-    JSON.parse(
-      localStorage.getItem("cart") ?? console.error("localstorage key invalid")
-    ) ?? [];
-} catch {
-  console.error("The cart could not be parsed into JSON.");
-  initialCartState = [];
+  const storedCart = localStorage.getItem("cart");
+  if (storedCart) {
+    initialCartState = JSON.parse(storedCart);
+  }
+} catch (err) {
+  console.error("Failed to parse cart from localStorage", err);
 }
 
-export function CartProvider(props) {
+export function CartProvider({ children }) {
   const [cart, dispatch] = React.useReducer(cartReducer, initialCartState);
+
   React.useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    try {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } catch (err) {
+      console.error("Failed to save cart to localStorage", err);
+    }
   }, [cart]);
-  const contextValue = {
-    cart,
-    dispatch,
-  };
+
   return (
-    <CartContext.Provider value={contextValue}>
-      {props.children}
+    <CartContext.Provider value={{ cart, dispatch }}>
+      {children}
     </CartContext.Provider>
   );
 }
 
-// shipping context
+// ---- SHIPPING CONTEXT ---- //
 export const ShippingContext = React.createContext(null);
 
-let initialShippingAddress;
+let initialShippingAddress = {};
 try {
-  initialShippingAddress =
-    JSON.parse(
-      localStorage.getItem("shipping-address") ??
-        console.error("localstorage key invalid")
-    ) ?? {};
-} catch {
-  console.error("Shipping address could not be written into JSON");
-  initialShippingAddress = {};
+  const storedShipping = localStorage.getItem("shipping-address");
+  if (storedShipping) {
+    initialShippingAddress = JSON.parse(storedShipping);
+  }
+} catch (err) {
+  console.error("Failed to parse shipping address from localStorage", err);
 }
 
-export function ShippingAddressProvider(props) {
+export function ShippingAddressProvider({ children }) {
   const [shippingAddress, dispatchShipping] = React.useReducer(
     checkoutReducer,
     initialShippingAddress
   );
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem(
+        "shipping-address",
+        JSON.stringify(shippingAddress)
+      );
+    } catch (err) {
+      console.error("Failed to save shipping address to localStorage", err);
+    }
+  }, [shippingAddress]);
+
   return (
     <ShippingContext.Provider value={{ shippingAddress, dispatchShipping }}>
-      {props.children}
+      {children}
     </ShippingContext.Provider>
   );
 }

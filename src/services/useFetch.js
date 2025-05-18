@@ -1,7 +1,5 @@
 import React from "react";
 
-const baseUrl = process.env.REACT_APP_API_BASE_URL;
-
 export default function useFetch(url) {
   const isMounted = React.useRef(false);
   const [data, setData] = React.useState(null);
@@ -12,7 +10,7 @@ export default function useFetch(url) {
     isMounted.current = true;
     async function init() {
       try {
-        const response = await fetch(baseUrl + url);
+        const response = await fetch(process.env.REACT_APP_API_BASE_URL + url);
         if (response.ok) {
           const json = await response.json();
           if (isMounted.current) setData(json);
