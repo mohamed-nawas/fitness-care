@@ -11,7 +11,7 @@ export default function useFetch(url) {
     async function init() {
       try {
         const response = await fetch(process.env.REACT_APP_API_BASE_URL + url);
-        console.log(`url: ${process.env.REACT_APP_API_BASE_URL + url}`);
+        console.log(`url: ${url}`);
         if (response.ok) {
           const json = await response.json();
           if (isMounted.current) setData(json);
