@@ -20,7 +20,8 @@ export default function Cart() {
 
     return (
       <li key={sku} className="cart-item">
-        <img src={`/images/${image}`} alt={name} />
+        {/* <img src={`/images/${image}`} alt={name} /> */}
+        <img src={`${process.env.PUBLIC_URL}/images/${image}`} alt={name} />
         <div>
           <h3>{name}</h3>
           <p>${price * quantity}</p>
