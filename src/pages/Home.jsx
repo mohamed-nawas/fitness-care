@@ -48,7 +48,7 @@ export default function Home() {
           <div key={p.id} className="product">
             <Link to={`/${p.category}/${p.id}`}>
               {/* <img src={`/images/${p.image}`} alt={p.name} /> */}
-              <img src={`/fitness-care/images/${p.image}`} alt={p.name} />
+              <img src={`${process.env.PUBLIC_URL}/images/${p.image}`} alt={p.name} />
               <h3>{p.name}</h3>
               <p>${p.price}</p>
             </Link>

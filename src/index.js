@@ -2,16 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import ErrorBoundary from "./others/ErrorBoundary";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import { CartProvider } from "./others/Context";
 
 ReactDOM.render(
   <ErrorBoundary>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
+    <HashRouter>
       <CartProvider>
         <App />
       </CartProvider>
-    </BrowserRouter>
+    </HashRouter>
+    {/* </BrowserRouter> */}
   </ErrorBoundary>,
   document.getElementById("root")
 );
