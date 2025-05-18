@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import ErrorBoundary from "./others/ErrorBoundary";
-import { BrowserRouter, HashRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { CartProvider } from "./others/Context";
 
 ReactDOM.render(
